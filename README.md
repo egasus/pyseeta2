@@ -30,14 +30,15 @@ cd ..
 cp build/bin/* ../lib/x64
 cp -rf build/install/include ../src/
 cp example/tracking/seeta/Struct_cv.h ../src/include/seeta
+cd ..
 
 [pybind11]
 cd pybind11
 git checkout tags/v2.4.3
+cd ..
 
 [install]
-cd ..
-sudo make setup
+sudo make install
 ```
 
 ## Example
