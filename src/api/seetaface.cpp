@@ -47,6 +47,9 @@ class SeetaImage {
     std::unique_ptr<seeta::cv::ImageData> image;
 };
 
+
+// junying-todo, 2019-12-13
+// default: CPU-ONLY MODE
 class FaceDetector {
   public:
     FaceDetector(const std::string& model) {
@@ -68,24 +71,20 @@ class FaceDetector {
     std::unique_ptr<seeta::FaceDetector> detector;
 };
 
-// class PointDetector {
-//   public:
-//     PointDetector(const std::string& model) {
-//       detector.reset(new seeta::PointDetector2(model.c_str()));
-//     }
+class FaceLandmarker {
+  public:
+    FaceLandmarker(const std::string& model) {
+      seeta::ModelSetting FL_model(model, SEETA_DEVICE_CPU, 0);
+      landmarker.reset(new seeta::FaceLandmarker(FL_model));
+    }
 
-//     std::vector<SeetaPointF> detect(std::shared_ptr<SeetaImage> image, SeetaRect rect) {
-//       SeetaPointF *points = detector->Detect(image->data(), rect);
-//       std::vector<SeetaPointF> result;
-//       for (int i = 0; i < detector->LandmarkNum(); i++) {
-//         SeetaPointF point = points[i];
-//         result.push_back(point);
-//       }
-//       return result;
-//     }
-//   private:
-//     std::unique_ptr<seeta::PointDetector2> detector;
-// };
+    std::vector<SeetaPointF> detect(std::shared_ptr<SeetaImage> image, SeetaRect rect) {
+      std::vector<SeetaPointF> points = landmarker->mark(image->data(), rect);
+      return points;
+    }
+  private:
+    std::unique_ptr<seeta::FaceLandmarker> landmarker;
+};
 
 PYBIND11_MODULE(seetaface, m) {
 
@@ -138,7 +137,7 @@ PYBIND11_MODULE(seetaface, m) {
     .def(py::init<const std::string&>())
     .def("detect", &FaceDetector::detect);
 
-  // py::class_<PointDetector, std::unique_ptr<PointDetector>>(m, "PointDetector")
-  //   .def(py::init<const std::string&>())
-  //   .def("detect", &PointDetector::detect);
+  py::class_<FaceLandmarker, std::unique_ptr<FaceLandmarker>>(m, "FaceLandmarker")
+    .def(py::init<const std::string&>())
+    .def("detect", &FaceLandmarker::detect);
 }

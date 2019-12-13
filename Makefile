@@ -19,3 +19,8 @@ rar.extract:
 
 test:
 	@python example/det.py
+
+commit: clean
+	@rm -rf pybind11
+	@mkdir pybind11
+	@commit
