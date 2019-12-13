@@ -49,3 +49,5 @@ USE_OPENCV3=ON python setup.py build
 ```bash
 python example/det.py
 ```
+## Thanks
+    [@twmht](https://github.com/twmht/python-seetaface2)
