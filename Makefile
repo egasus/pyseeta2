@@ -1,6 +1,9 @@
 setup:
 	@python setup.py install
 
+setup.opencv3:
+	@USE_OPENCV3=ON python setup.py install
+
 uninstall: clean
 	@pip uninstall pyseeta2
 
@@ -13,3 +16,6 @@ rar.compress:
 
 rar.extract:
 	@unrar x fr_2_10.dat.part1.rar
+
+test:
+	@python example/det.py
