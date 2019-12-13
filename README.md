@@ -26,6 +26,10 @@ cd build
 cmake .. -DCMAKE_INSTALL_PREFIX=`pwd`/install -DCMAKE_BUILD_TYPE=Release -DBUILD_EXAMPLE=OFF # 如果有 OpenCV，则设置为 ON
 cmake --build .  --config Release --target install
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:`pwd`/lib
+cd ..
+cp build/bin/* ../lib/x64
+cp -rf build/install/include ../src/
+cp example/tracking/seeta/Struct_cv.h ../src/include/seeta
 
 [pybind11]
 cd pybind11
