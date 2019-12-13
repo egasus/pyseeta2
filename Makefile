@@ -24,6 +24,6 @@ test:
 	@python example/det.py
 
 commit: clean
-	@rm -rf pybind11
-	@mkdir pybind11
+	@if [ -d "pybind11" ]; then rm -rf pybind11 && mkdir pybind11; fi
+	@if [ -d "SeetaFace2" ]; then rm -rf SeetaFace2 && mkdir SeetaFace2; fi
 	@commit

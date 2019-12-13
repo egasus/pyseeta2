@@ -3,23 +3,18 @@
 A python API interface for [SeetaFace2](https://github.com/seetafaceengine/SeetaFace2)
 
 ## Installation
-### PreInstall
+### Prerequisite
 ```bash
 sudo apt-get install libopencv-dev
 sudo pip install opencv-contrib-python 
 ```
-### [SeetaFace2](https://github.com/seetafaceengine/SeetaFace2)
-``` bash
-git clone https://github.com/seetafaceengine/SeetaFace2
-
-```
-### PySeeta2
+### Install
 
 ``` bash
 git clone --recursive https://github.com/gaojunying/pyseeta2
 cd pyseeta2
 
-[SeetaFace2]
+[SeetaFace2](optional)
 cd SeetaFace2
 mkdir build
 cd build

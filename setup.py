@@ -93,7 +93,7 @@ setup(
     version='1.0',
     author='JunYing Gao',
     author_email='gaojunying@yandex.com',
-    description='python bindings to http://github.com/seetafaceengine/SeetaFace2',
+    description='python bindings to http://github.com/gaojunying/SeetaFace2',
     long_description='',
     packages=find_packages('src'),
     package_dir={'':'src'},
