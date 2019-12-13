@@ -45,7 +45,9 @@ sudo make install
 ```bash
 [detection]
 python example/det.py
-
+```
+![Result](/example/example1_result.jpg)
+```bash
 [recognition]
 python example/rec.py
 ```
