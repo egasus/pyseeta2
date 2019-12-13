@@ -9,7 +9,7 @@ uninstall: clean
 
 clean:
 	@rm build/ dist/ -rf
-	@rm build/ dist/ src/python_seetaface2.egg-info -rf
+	@rm build/ dist/ src/pyseeta2.egg-info -rf
 
 rar.compress:
 	@cd models; rar a -v40000k fr_2_10.dat.rar fr_2_10.dat
