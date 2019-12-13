@@ -71,6 +71,8 @@ class FaceDetector {
     std::unique_ptr<seeta::FaceDetector> detector;
 };
 
+// junying-todo, 2019-12-13
+// default: CPU-ONLY MODE
 class FaceLandmarker {
   public:
     FaceLandmarker(const std::string& model) {
@@ -84,6 +86,41 @@ class FaceLandmarker {
     }
   private:
     std::unique_ptr<seeta::FaceLandmarker> landmarker;
+};
+
+// junying-todo, 2019-12-13
+// default: CPU-ONLY MODE
+class FaceRecognizer {
+  public:
+    FaceRecognizer(const std::string& model) {
+      seeta::ModelSetting FR_model(model, SEETA_DEVICE_CPU, 0);
+      recognizer.reset(new seeta::FaceRecognizer(FR_model));
+    }
+
+    // seeta::ImageData cropface(std::shared_ptr<SeetaImage> image, std::shared_ptr<SeetaPointF> points){
+    //   return recognizer->CropFace(image->data(),points)
+    // }
+
+    std::vector<float> extract(std::shared_ptr<SeetaImage> image, std::vector<SeetaPointF> points){
+      float *features = new float[1024];
+      SeetaPointF *ptr_pts = points.data();
+      std::vector<float> result;
+
+      bool success = recognizer->Extract(image->data(), points.data(), features);
+      if (success == false) {
+        return result;
+      }
+      for (int i = 0; i < 1024; i++) {
+        result.push_back(features[i]);
+      }
+      return result;
+    }
+
+    float calcsim(std::vector<float> featuresA,std::vector<float> featuresB) {
+      return recognizer->CalculateSimilarity(featuresA.data(),featuresB.data());
+    }
+  private:
+    std::unique_ptr<seeta::FaceRecognizer> recognizer;
 };
 
 PYBIND11_MODULE(seetaface, m) {
@@ -140,4 +177,9 @@ PYBIND11_MODULE(seetaface, m) {
   py::class_<FaceLandmarker, std::unique_ptr<FaceLandmarker>>(m, "FaceLandmarker")
     .def(py::init<const std::string&>())
     .def("detect", &FaceLandmarker::detect);
+
+  py::class_<FaceRecognizer, std::unique_ptr<FaceRecognizer>>(m, "FaceRecognizer")
+    .def(py::init<const std::string&>())
+    .def("extract", &FaceRecognizer::extract)
+    .def("calcsim", &FaceRecognizer::calcsim);
 }
