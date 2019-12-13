@@ -40,14 +40,13 @@ cd ..
 sudo make setup
 ```
 
-If you want to build with opencv3
-
-``` bash
-USE_OPENCV3=ON python setup.py build
-```
 ## Example
 ```bash
+[detection]
 python example/det.py
+
+[recognition]
+python example/rec.py
 ```
 ## Thanks
 - [@twmht](https://github.com/twmht/python-seetaface2)
