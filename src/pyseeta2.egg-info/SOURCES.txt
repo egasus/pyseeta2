@@ -1,0 +1,7 @@
+README.md
+setup.py
+src/pyseeta2.egg-info/PKG-INFO
+src/pyseeta2.egg-info/SOURCES.txt
+src/pyseeta2.egg-info/dependency_links.txt
+src/pyseeta2.egg-info/not-zip-safe
+src/pyseeta2.egg-info/top_level.txt
