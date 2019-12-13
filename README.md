@@ -23,10 +23,17 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:`pwd`/lib
 ``` bash
 git clone --recursive https://github.com/gaojunying/pyseeta2
 cd pyseeta2
+cd pybind11
+git checkout tags/v2.4.3
+cd ..
 sudo make setup
 ```
 If you want to build with opencv3
 
 ``` bash
 USE_OPENCV3=ON python setup.py build
+```
+## Example
+```bash
+python example/det.py
 ```
