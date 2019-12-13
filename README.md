@@ -50,4 +50,4 @@ USE_OPENCV3=ON python setup.py build
 python example/det.py
 ```
 ## Thanks
-    [@twmht](https://github.com/twmht/python-seetaface2)
+[@twmht](https://github.com/twmht/python-seetaface2)
