@@ -1,9 +1,11 @@
 install: build.opencv3
 
 build:
+	@if [ ! -f "models/fr_2_10.dat" ]; then $(MAKE) -sC . rar.extract; fi
 	@python setup.py build
 
 build.opencv3:
+	@if [ ! -f "models/fr_2_10.dat" ]; then $(MAKE) -sC . rar.extract; fi
 	@USE_OPENCV3=ON python setup.py install
 
 uninstall: clean
