@@ -13,6 +13,8 @@ sudo pip install opencv-contrib-python
 ``` bash
 git clone --recursive https://github.com/gaojunying/pyseeta2
 cd pyseeta2
+git submodule add  https://github.com/pybind/pybind11.git pybind11
+git submodule add  https://github.com/gaojunying/SeetaFace2.git SeetaFace2
 
 [SeetaFace2](optional)
 cd SeetaFace2
