@@ -1,5 +1,0 @@
-/media/ubuntu/Investigation/Projects/face/github.com/gaojunying/pyseeta2/build/temp.linux-x86_64-2.7/CMakeFiles/rebuild_cache.dir
-/media/ubuntu/Investigation/Projects/face/github.com/gaojunying/pyseeta2/build/temp.linux-x86_64-2.7/CMakeFiles/seetaface.dir
-/media/ubuntu/Investigation/Projects/face/github.com/gaojunying/pyseeta2/build/temp.linux-x86_64-2.7/CMakeFiles/edit_cache.dir
-/media/ubuntu/Investigation/Projects/face/github.com/gaojunying/pyseeta2/build/temp.linux-x86_64-2.7/pybind11/CMakeFiles/rebuild_cache.dir
-/media/ubuntu/Investigation/Projects/face/github.com/gaojunying/pyseeta2/build/temp.linux-x86_64-2.7/pybind11/CMakeFiles/edit_cache.dir
