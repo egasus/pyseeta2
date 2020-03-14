@@ -5,8 +5,8 @@ try:
 except ImportError:
     raise ImportError('opencv can not be found!')
 
-single = 'example/single.jpg'
-double = 'example/double.jpg'
+single = 'examples/single.jpg'
+double = 'examples/double.jpg'
 
 fd = seetaface.FaceDetector('models/fd_2_00.dat')
 fl = seetaface.FaceLandmarker('models/pd_2_00_pts81.dat')

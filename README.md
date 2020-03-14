@@ -5,7 +5,8 @@ A python API interface for [SeetaFace2](https://github.com/seetafaceengine/Seeta
 ## Installation
 ### Environment
    * [x] opencv3.x
-   * [x] ubuntu(16.04/18.04)
+   * [x] ubuntu 16.04/18.04
+   * [x] python 2.7.x/3.5.x
 ### Prerequisite
 ```bash
 sudo pip install opencv-python opencv-contrib-python
