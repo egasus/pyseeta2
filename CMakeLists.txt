@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8.12)
 project(python_cpp_example)
 
-option(USE_OPENCV3 OFF)
+option(USE_OPENCV3 ON)
 
 SET(OPENCV_LIBS  opencv_core opencv_highgui opencv_imgproc)
 

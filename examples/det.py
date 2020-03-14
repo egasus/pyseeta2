@@ -6,9 +6,10 @@ root = 'example/example1.jpg'
 
 fd = seetaface.FaceDetector('models/fd_2_00.dat')
 fl = seetaface.FaceLandmarker('models/pd_2_00_pts81.dat')
-
+print("model loaded")
 im = cv2.imread(root)
 image = seetaface.SeetaImage(im)
+print("image loaded")
 # or you can pass image path to SeetaImage
 #  image = seetaface.SeetaImage(root)
 

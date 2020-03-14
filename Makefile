@@ -1,9 +1,5 @@
 install: build.opencv3
 
-build:
-	@if [ ! -f "models/fr_2_10.dat" ]; then $(MAKE) -sC . rar.extract; fi
-	@python setup.py build
-
 build.opencv3:
 	@if [ ! -f "models/fr_2_10.dat" ]; then $(MAKE) -sC . rar.extract; fi
 	@USE_OPENCV3=ON python setup.py install
@@ -11,21 +7,8 @@ build.opencv3:
 uninstall: clean
 	@pip uninstall pyseeta2
 
-clean:
-	@rm build/ dist/ -rf
-	@rm build/ dist/ src/pyseeta2.egg-info -rf
-	@if [ -f "models/fr_2_10.dat" ]; then rm models/fr_2_10.dat; fi
+preinstall:
+	@if [ ! -f "models/fr_2_10.dat" ]; then cd models; unrar x fr_2_10.dat.part1.rar; fi
 
-rar.compress:
-	@cd models; rar a -v40000k fr_2_10.dat.rar fr_2_10.dat
-
-rar.extract:
-	@cd models; unrar x fr_2_10.dat.part1.rar
-
-test:
+test: preinstall
 	@python example/det.py
-
-commit: clean
-	@if [ -d "pybind11" ]; then rm -rf pybind11 && mkdir pybind11; fi
-	@if [ -d "SeetaFace2" ]; then rm -rf SeetaFace2 && mkdir SeetaFace2; fi
-	@commit
