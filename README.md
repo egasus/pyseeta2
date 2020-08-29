@@ -15,7 +15,7 @@ sudo pip install opencv-python opencv-contrib-python
 sudo apt-get install libopencv-dev
 
 [ubuntu-16.04]
-install opencv3.x from source code after uninstall original opencv 2.4.x if exists.
+install opencv3.x from source code after uninstalling original opencv 2.4.x if exists.
 ```
 ### Install
 
@@ -52,7 +52,7 @@ sudo make install
 [detection]
 python example/det.py
 ```
-![Result](/example/example1_result.jpg)
+![Result](example/example1_result.jpg)
 ```bash
 [recognition]
 python example/rec.py
