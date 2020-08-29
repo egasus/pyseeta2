@@ -52,7 +52,7 @@ sudo make install
 [detection]
 python example/det.py
 ```
-![Result](example/example1_result.jpg)
+![Result](https://github.com/gaojunying/pyseeta2/blob/master/examples/example1_result.jpg)
 ```bash
 [recognition]
 python example/rec.py
